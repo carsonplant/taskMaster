@@ -18,9 +18,14 @@ export default class ListService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
+    constructor() {
+        this.getLists()
+    }
 
     addList(newList) {
-        _state.list.push(new List(newList))
+        let createdList = new List(newList)
+        _state.list.push(createdList)
+        this.saveLists()
     }
 
     get Lists() {
@@ -31,14 +36,14 @@ export default class ListService {
 
     //NOTE call saved list everytime you change the list collection in any way
     saveLists() {
-        localStorage.setItem('lists', JSON.stringify(_state.lists))
+        localStorage.setItem('list', JSON.stringify(_state.list))
     }
 
     //NOTE this method will get the lists from local storage at the start of the app
     getLists() {
-        let saved = JSON.parse(localStorage.getItem('lists'))
+        let saved = JSON.parse(localStorage.getItem('list'))
         if (saved) {
-            _state.lists = saved;
+            _state.list = saved;
         }
     }
 }
