@@ -4,13 +4,14 @@ import ListService from "../Services/ListService.js";
 let _listService = new ListService()
 
 //TODO Don't forget to render to the screen after every data change.
+//FIXME This is not drawing onto the page possibly problem 
 function _drawLists() {
     let template = ``
     let list = _listService.Lists
-    list.forEach(list => {
-        template += list.getTemplate()
+    list.forEach((list, index) => {
+        template += list.getTemplate(index)
     })
-    document.querySelector("#list-creator").innerHTML = template
+    document.querySelector('#list-creator').innerHTML = template
 }
 
 

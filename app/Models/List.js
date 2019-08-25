@@ -6,19 +6,25 @@ export default class List {
         this.listItems = data.listItems || []
     }
 
-
-    getTemplate() {
-        return `<div class="col-4">
-            <H1>${this.name}</H1>
+//FIXME this could potetially be the other problem maybe my template is fucked
+    getTemplate(index) {
+        let template =
+         `
+            <div class="col-4">
+                <H1>${this.name}</H1>
                 <ul>
                     <li></li>
                 </ul>
-            <form onsubmit="app.controllers.ListController.addListItems(event)">
-            <div class="form-group">
-                <label for="list-items">Add to your list</label>
-                <input type="text" class="form-control" id="list-items" placeholder="add a list item">
-                <button type="submit" class="btn btn-primary">Add</button>
+            <form onsubmit="app.controllers.listController.addListItems(event)">
+                <div class="form-group">
+                    <label for="list-items">Add to your list</label>
+                    <input type="text" class="form-control" id="list-items" placeholder="add a list item">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
             </div>
-        </div>`
+        `
+        return template
     }
+    
 }
