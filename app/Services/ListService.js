@@ -6,7 +6,10 @@ let vacationList = {
     items: ["Paris", "British Columbia", "Russia", "Texas"]
 }
 let _state = {
-    list: []
+    list: [new List({
+        name: "",
+        listItems: []
+    })]
 }
 
 
@@ -22,6 +25,7 @@ export default class ListService {
     addList(newList) {
         _state.list.push(new List(newList))
         this.saveLists()
+
     }
 
     get Lists() {
