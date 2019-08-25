@@ -25,7 +25,16 @@ export default class ListService {
     addList(newList) {
         _state.list.push(new List(newList))
         this.saveLists()
+    }
 
+    addListItem(newItem, index) {
+        _state.list[index].listItems.push(newItem)
+        this.saveLists()
+    }
+
+    deleteList(index) {
+        _state.list.splice(index, 1)
+        this.saveLists()
     }
 
     get Lists() {

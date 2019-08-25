@@ -18,9 +18,10 @@ export default class List {
             <form onsubmit="app.controllers.listController.addListItems(event)">
                 <div class="form-group">
                     <label for="list-items">Add to your list</label>
-                    <input type="text" class="form-control" id="list-items" placeholder="add a list item">
+                    <input type="text" class="form-control" id="listItems" placeholder="add a list item">
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
+                <button type="button" onclick="app.controllers.listController.deleteList(${index})">X</button>
                 </form>
             </div>
         `
