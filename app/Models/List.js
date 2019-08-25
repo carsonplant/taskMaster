@@ -3,7 +3,7 @@ export default class List {
     //and the methods needed to create the view template for this model
     constructor(data) {
         this.name = data.name
-        this.listItems = data.listItems || []
+        this.listItems = data.listItems
     }
 
 //FIXME this could potetially be the other problem maybe my template is fucked
