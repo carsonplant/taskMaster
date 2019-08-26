@@ -36,6 +36,10 @@ export default class ListService {
         _state.list.splice(index, 1)
         this.saveLists()
     }
+    deleteItem(index, listIndex) {
+        _state.list[index].listItems.splice(listIndex, 1)
+        this.saveLists()
+    }
 
     get Lists() {
         return _state.list.map(list => new List(list))

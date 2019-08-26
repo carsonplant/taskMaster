@@ -31,7 +31,7 @@ export default class List {
     drawListItems(listIndex){
         let itemTemplate = ""
         this.listItems.forEach((item, itemIndex) => {
-            itemTemplate += `<li>${item}<span onclick="app.controllers.listController.deleteListItem(${listIndex}, ${itemIndex})">X</span></li>`
+            itemTemplate += `<li>${item}<span onclick="app.controllers.listController.deleteItems(${listIndex}, ${itemIndex})">X</span></li>`
         });
         return itemTemplate
     }
