@@ -45,11 +45,13 @@ export default class ListController {
     }
 
     deleteList(index) {
+        window.confirm("Are you sure you want to delete?")
         _listService.deleteList(index)
         _drawLists()
     }
 
     deleteItems(index, listIndex) {
+        window.confirm("Are you sure you want to delete?")
         _listService.deleteItem(index, listIndex)
         _drawLists()
     }
