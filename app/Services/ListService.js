@@ -27,8 +27,8 @@ export default class ListService {
         this.saveLists()
     }
 
-    addListItem(newItem, index) {
-        _state.list[index].listItems.push(newItem)
+    addListItem(newItem, listIndex) {
+        _state.list[listIndex].listItems.push(newItem)
         this.saveLists()
     }
 

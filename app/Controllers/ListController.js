@@ -27,7 +27,6 @@ export default class ListController {
     //TODO: Your app will need the ability to create, and delete both lists and listItems
 
     addList(event) {
-        debugger
         event.preventDefault()
         let form = event.target
         let newList = {
@@ -37,11 +36,11 @@ export default class ListController {
         _drawLists()
     }
 
-    addListItems(event, index) {
+    addListItems(event, listIndex) {
         event.preventDefault()
         let form = event.target
-        let newListItem = form.listItems.value
-        _listService.addListItem(newListItem, index)
+        let newListItem = form.listItem.value
+        _listService.addListItem(newListItem, listIndex)
         _drawLists()
     }
 
@@ -49,4 +48,6 @@ export default class ListController {
         _listService.deleteList(index)
         _drawLists()
     }
+
+    deleteListItems()
 }

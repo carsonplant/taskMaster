@@ -3,7 +3,7 @@ export default class List {
     //and the methods needed to create the view template for this model
     constructor(data) {
         this.name = data.name
-        this.listItems = data.listItems
+        this.listItems = data.listItems || []
     }
 
 //FIXME this could potetially be the other problem maybe my template is fucked
@@ -12,20 +12,28 @@ export default class List {
          `
             <div class="col-4">
                 <H1>${this.name}</H1>
-                <ul>
-                    <li></li>
-                </ul>
-            <form onsubmit="app.controllers.listController.addListItems(event)">
+                <ul>`
+        template += this.drawListItems(index)   
+        template += ` </ul>
+                <form onsubmit="app.controllers.listController.addListItems(event, ${index})">
                 <div class="form-group">
-                    <label for="list-items">Add to your list</label>
-                    <input type="text" class="form-control" id="listItems" placeholder="add a list item">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                <label for="list-items">Add to your list</label>
+                <input type="text" class="form-control" name="listItem" placeholder="add a list item">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
                 <button type="button" onclick="app.controllers.listController.deleteList(${index})">X</button>
                 </form>
             </div>
         `
         return template
+    }
+
+    drawListItems(listIndex){
+        let itemTemplate = ""
+        this.listItems.forEach((item, itemIndex) => {
+            itemTemplate += `<li>${item}<span onclick="app.controllers.listController.deleteListItem(${listIndex}, ${itemIndex})">X</span></li>`
+        });
+        return itemTemplate
     }
     
 }
